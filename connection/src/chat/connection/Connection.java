@@ -12,6 +12,10 @@ public class Connection {
     private final Thread connectionThread;
     private final ConnectionListener eventListener;
 
+    public TCPConnection(TCPConnectionListener eventListener, String ipAddr, int port) throws IOException {
+        this(eventListener, new Socket(ipAddr, port));
+    }
+
     public Connection(ConnectionListener eventListener, Socket socket) throws IOException {
 
         this.eventListener = eventListener;
