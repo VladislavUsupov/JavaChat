@@ -9,7 +9,7 @@ import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.Socket;
+
 
 public class ClientWindow extends JFrame implements ActionListener, ConnectionListener {
 
@@ -63,8 +63,7 @@ public class ClientWindow extends JFrame implements ActionListener, ConnectionLi
 
         setVisible(true);
         try {
-            Socket socket=new Socket(clientIP, clientPort);
-            connection = new Connection(this, socket);
+            connection = new Connection(this, clientIP, clientPort);
         } catch (IOException e) {
             printMessage("Connection exception: " + e);
         }
